@@ -21,7 +21,6 @@ C:\LoadSheddingApp\LoadSheddingApp\bin\Debug\net5.0\LoadSheddingApp.runtimeconfi
 C:\LoadSheddingApp\LoadSheddingApp\bin\Debug\net5.0\LoadSheddingApp.dll
 C:\LoadSheddingApp\LoadSheddingApp\bin\Debug\net5.0\ref\LoadSheddingApp.dll
 C:\LoadSheddingApp\LoadSheddingApp\bin\Debug\net5.0\LoadSheddingApp.pdb
-C:\LoadSheddingApp\LoadSheddingApp\obj\Debug\net5.0\LoadSheddingApp.csproj.AssemblyReference.cache
 C:\LoadSheddingApp\LoadSheddingApp\obj\Debug\net5.0\LoadSheddingApp.GeneratedMSBuildEditorConfig.editorconfig
 C:\LoadSheddingApp\LoadSheddingApp\obj\Debug\net5.0\LoadSheddingApp.AssemblyInfoInputs.cache
 C:\LoadSheddingApp\LoadSheddingApp\obj\Debug\net5.0\LoadSheddingApp.AssemblyInfo.cs
@@ -30,3 +29,4 @@ C:\LoadSheddingApp\LoadSheddingApp\obj\Debug\net5.0\LoadSheddingApp.dll
 C:\LoadSheddingApp\LoadSheddingApp\obj\Debug\net5.0\ref\LoadSheddingApp.dll
 C:\LoadSheddingApp\LoadSheddingApp\obj\Debug\net5.0\LoadSheddingApp.pdb
 C:\LoadSheddingApp\LoadSheddingApp\obj\Debug\net5.0\LoadSheddingApp.genruntimeconfig.cache
+C:\LoadSheddingApp\LoadSheddingApp\obj\Debug\net5.0\LoadSheddingApp.csproj.AssemblyReference.cache
