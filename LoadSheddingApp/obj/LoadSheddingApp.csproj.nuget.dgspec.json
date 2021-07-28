@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ThapeloSelebedi\\source\\repos\\LoadSheddingApp\\LoadSheddingApp\\LoadSheddingApp.csproj": {}
+    "C:\\LoadSheddingApp\\LoadSheddingApp\\LoadSheddingApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ThapeloSelebedi\\source\\repos\\LoadSheddingApp\\LoadSheddingApp\\LoadSheddingApp.csproj": {
+    "C:\\LoadSheddingApp\\LoadSheddingApp\\LoadSheddingApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ThapeloSelebedi\\source\\repos\\LoadSheddingApp\\LoadSheddingApp\\LoadSheddingApp.csproj",
+        "projectUniqueName": "C:\\LoadSheddingApp\\LoadSheddingApp\\LoadSheddingApp.csproj",
         "projectName": "LoadSheddingApp",
-        "projectPath": "C:\\Users\\ThapeloSelebedi\\source\\repos\\LoadSheddingApp\\LoadSheddingApp\\LoadSheddingApp.csproj",
+        "projectPath": "C:\\LoadSheddingApp\\LoadSheddingApp\\LoadSheddingApp.csproj",
         "packagesPath": "C:\\Users\\ThapeloSelebedi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ThapeloSelebedi\\source\\repos\\LoadSheddingApp\\LoadSheddingApp\\obj\\",
+        "outputPath": "C:\\LoadSheddingApp\\LoadSheddingApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
