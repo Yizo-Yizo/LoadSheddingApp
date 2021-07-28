@@ -48,6 +48,8 @@ namespace LoadSheddingApp
 
         public string[] loadsheddingTime = new string[12]
         { "00:00", "02:00", "04:00", "06:00", "08:00", "10:00", "12:00", "14:00", "16:00", "18:00", "20:00", "22:00"};
+        public string[] _loadsheddingTime = new string[12]
+        { "00:00", "02:00", "04:00", "06:00", "08:00", "10:00", "12:00", "14:00", "16:00", "18:00", "20:00", "22:00"};
 
         public void LoadSheddingDuration(int num)
         {
@@ -84,7 +86,7 @@ namespace LoadSheddingApp
                 day = 15;
 
             // Load-shedding Schedule
-            Console.WriteLine("\nLOADSHEDDING SCHEDULE\n");
+            Console.WriteLine("\nSTAGE 2 LOADSHEDDING SCHEDULE\n");
 
             for (int i = 0; i <= loadsheddingAreas.GetLength(0) - 1; i++)
             {
@@ -100,7 +102,7 @@ namespace LoadSheddingApp
                 }
                 if (num == _loadsheddingAreas[i, day - 1])
                 {
-                    _downTime = loadsheddingTime[i];
+                    _downTime = _loadsheddingTime[i];
                     DateTime _time = DateTime.ParseExact(_downTime, "HH:mm", CultureInfo.InvariantCulture);
 
                     _beginningTime = _time.TimeOfDay;
@@ -147,113 +149,131 @@ namespace LoadSheddingApp
             // During loadshedding hours
             if ((current <= _start && current >= _end) && (start == emptyTime))
             {
-                Console.WriteLine($"Your area is currently experiencing loadshedding it started at {_start} and will end at {_end}," +
-                    $"and there is no loadshedding scheduled after this tonight");
+                Console.WriteLine($"Your area is currently experiencing loadshedding it started at {_start} " +
+                    $"and will end at {_end}, and there is no loadshedding scheduled after this tonight.");
             }
             else if ((current <= start && current >= end) && (_start == emptyTime))
             {
-                Console.WriteLine($"Your area is currently experiencing loadshedding it started at {start} and will end at {end}," +
-                    $"and there is no loadshedding scheduled after this tonight");
+                Console.WriteLine($"Your area is currently experiencing loadshedding it started at {start} " +
+                    $"and will end at {end}, and there is no loadshedding scheduled after this tonight.");
             }
             else if ((current >= start && current <= end) && (end < _start))
             {
-                Console.WriteLine($"Your area is currently experiencing loadshedding it started at {start} and will end at {end}." +
-                    $" There is a loadshedding scheduled for {_start} until {_end}.");
+                Console.WriteLine($"Your area is currently experiencing loadshedding it started at {start} " +
+                    $"and will end at {end}. There is a loadshedding scheduled for {_start} until {_end}.");
             }
             else if ((current >= _start && current <= _end) && (_end < start))
             {
-                Console.WriteLine($"Your area is currently experiencing loadshedding it started at {_start} and will end at {_end}." +
-                    $" There is a loadshedding scheduled for {start} until {end}.");
+                Console.WriteLine($"Your area is currently experiencing loadshedding it started at {_start} " +
+                    $"and will end at {_end}. There is a loadshedding scheduled for {start} until {end}.");
             }
             else if ((current >= start && current <= end) && (start > _end))
             {
-                Console.WriteLine($"Your area is currently experiencing loadshedding it started at {start} and will end at {end}," +
-                    $"and there is no loadshedding scheduled after this tonight");
+                Console.WriteLine($"Your area is currently experiencing loadshedding it started at {start}" +
+                    $" and will end at {end}, and there is no loadshedding scheduled after this tonight.");
             }
             else if ((current >= _start && current <= _end) && (_start > end))
             {
-                Console.WriteLine($"Your area is currently experiencing loadshedding it started at {_start} and will end at {_end}," +
-                    $"and there is no loadshedding scheduled after this tonight");
+                Console.WriteLine($"Your area is currently experiencing loadshedding it started at {_start}" +
+                    $" and will end at {_end}, and there is no loadshedding scheduled after this tonight.");
             }
-            else if (((current <= start) || (current >= start)) && (end == afterMidNight))
+            else if ((current >= start) && (end == afterMidNight))
             {
-                Console.WriteLine($"Your area is currently experiencing loadshedding it started at {start} and will end at {end}" +
-                    $" There is no other loadshedding scheduled for tonight.");
+                Console.WriteLine($"Your area is currently experiencing loadshedding it started at {start} " +
+                    $"and will end at {end}. There is no other loadshedding scheduled for tonight.");
             }
-            else if (((current <= _start) || (current >= start)) && (_end == afterMidNight))
+            else if ((current >= _start) && (_end == afterMidNight))
             {
-                Console.WriteLine($"Your area is currently experiencing loadshedding it started at {start} and will end at {end}" +
-                    $" There is no other loadshedding scheduled for tonight.");
+                Console.WriteLine($"Your area is currently experiencing loadshedding it started at {start} " +
+                    $"and will end at {end}. There is no other loadshedding scheduled for tonight.");
             }
             else if ((start == emptyTime) && (end == twoThirty))
             {
-                Console.WriteLine($"Your area is currently experiencing load-shedding it start at {start} and will end at {end}." +
-                    $"There is a load-shedding scheduled for {_start} until {_end}");
+                Console.WriteLine($"Your area is currently experiencing load-shedding it start at {start} " +
+                    $"and will end at {end}. There is a load-shedding scheduled for {_start} until {_end}.");
             }
 
             // Outside loadshedding hours
+            else if ( (start == _start) && (current < start))
+            {
+                Console.WriteLine($"Your area is currently not experiencing load-shedding, however there is" +
+                    $" load-shedding scheduled at {_start} until {_end}.");
+            }
+            else if ((start == _start) && (current > start))
+            {
+                Console.WriteLine("Your area is currently not experiencing any load-shedding, and there is" +
+                    "no load-shedding scheduled today.");
+            }
             else if ((current > end) && (current < _start))
             {
-                Console.WriteLine($"Your area is currently not experiencing loadshedding, however there is load-shedding scheduled " +
-                    $"at {_start} until {_end}");
+                Console.WriteLine($"Your area is currently not experiencing load-shedding, however there is" +
+                    $" load-shedding scheduled at {_start} until {_end}.");
             }
             else if ((current < _start) && (end == emptyTime))
             {
-                Console.WriteLine($"Your area is currently not experiencing any loadshedding, however there is load-shedding scheduled" +
-                    $" at {_start} until {_end}");
+                Console.WriteLine($"Your area is currently not experiencing any load-shedding, however there is" +
+                    $" load-shedding scheduled at {_start} until {_end}.");
             }
             else if ((current > _end) && (end == emptyTime))
             {
-                Console.WriteLine($"Your area is currently not experiencing any loadshedding, and there is no load-shedding scheduled for today.");
+                Console.WriteLine($"Your area is currently not experiencing any load-shedding, and there is " +
+                    $"no load-shedding scheduled for today.");
             }
             else if ((current < start) && (_end == emptyTime))
             {
-                Console.WriteLine($"Your area is currently not experiencing any loadshedding, however there is loadshedding scheduled " +
-                    $"at {start} until {end}");
+                Console.WriteLine($"Your area is currently not experiencing any load-shedding, however there is" +
+                    $" loadshedding scheduled at {start} until {end}.");
             }
             else if ((current > end) && (end == emptyTime))
             {
-                Console.WriteLine($"Your area is currently not experiencing any loadshedding, and there is no load-shedding scheduled for today.");
+                Console.WriteLine($"Your area is currently not experiencing any load-shedding, and there is" +
+                    $" no load-shedding scheduled for today.");
             }
             else if ((current > end) && (current < _start) && (_end == afterMidNight))
             {
-                Console.WriteLine($"Your area is currently not experiencing loadshedding, however there is loadshedding scheduled " +
-                    $"at {_start} until {_end}");
+                Console.WriteLine($"Your area is currently not experiencing load-shedding, however there is " +
+                    $"loadshedding scheduled at {_start} until {_end}.");
             }
-            else if ((current < start) && (end < _start))
+            else if ((current < start) && (end < _start) && (end != afterMidNight))
             {
-                Console.WriteLine($"Your area is currently not experiencing loadshedding, however there is loadshedding scheduled at {start} until {end} and at {_start} until {_end}");
+                Console.WriteLine($"Your area is currently not experiencing load-shedding, however there is " +
+                    $"loadshedding scheduled at {start} until {end} and at {_start} until {_end}.");
             }
             else if ((current < start) && (end < _start) && (_end == afterMidNight))
             {
-                Console.WriteLine($"Your area is currently not experiencing loadshedding, however there is loadshedding scheduled at {start} until {end} and at {_start} until {_end}");
+                Console.WriteLine($"Your area is currently not experiencing load-shedding, however there is" +
+                    $" loadshedding scheduled at {start} until {end} and at {_start} until {_end}.");
             }
             else if ((current > _end && end < _start) && (end != afterMidNight) && (_end != afterMidNight))
             {
-                Console.WriteLine($"Your area is currently not experiencing load-shedding and there are no loashedding for scheduled tonight.");
+                Console.WriteLine($"Your area is currently not experiencing load-shedding and there are no " +
+                    $"loashedding for scheduled tonight.");
             }
             else if ((current > _end) && (current < start))
             {
-                Console.WriteLine($"Your area is currently not experiencing load-shedding, however there is load-shedding scheduled at {start} until {end}");
+                Console.WriteLine($"Your area is currently not experiencing load-shedding, however there is" +
+                    $" load-shedding scheduled at {start} until {end}.");
             }
             else if ((current > _end) && (current < start) && (end == afterMidNight))
             {
-                Console.WriteLine($"Your area is currently not experiencing load-shedding, however there is load-shedding scheduled at {_start} until {_end}");
+                Console.WriteLine($"Your area is currently not experiencing load-shedding, however there is" +
+                    $" load-shedding scheduled at {_start} until {_end}");
             }
             else if ((current < _start) && (_end < start))
             {
-                Console.WriteLine($"Your area is currently not experiencing load-shedding, however there is load-shedding scheduled at {start} until {end} and at {_start} until {_end}");
+                Console.WriteLine($"Your area is currently not experiencing load-shedding, however there is " +
+                    $"load-shedding scheduled at {start} until {end} and at {_start} until {_end}.");
             }
             else if ((current < _start) && (_end < start) && (end == afterMidNight))
             {
-                Console.WriteLine($"Your area is currently not experiencing load-shedding, however there is load-shedding scheduled at {start} until {end} and at {_start} until {_end}");
+                Console.WriteLine($"Your area is currently not experiencing load-shedding, however there is " +
+                    $"load-shedding scheduled at {start} until {end} and at {_start} until {_end}.");
             }
             else if (current > end && (_end < start) && (end != afterMidNight) && (_end != afterMidNight))
             {
-                Console.WriteLine($"Your area is currently not experiencing load-shedding and there is no load-shedding scheduled for tonight.");
+                Console.WriteLine($"Your area is currently not experiencing load-shedding and there is no " +
+                    $"load-shedding scheduled for tonight.");
             }
-
-            
         }
     }
 }
