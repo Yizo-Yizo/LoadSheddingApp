@@ -54,36 +54,56 @@ namespace LoadSheddingApp
         public void LoadSheddingDuration(int num)
         {
             // Since there are 16 columns in load-shedding areas matrix match day 17 to day 31 with 1 to 16
-            if (day == 17)
-                day = 1;
-            else if (day == 18)
-                day = 2;
-            else if (day == 19)
-                day = 3;
-            else if (day == 20)
-                day = 4;
-            else if (day == 21)
-                day = 5;
-            else if (day == 22)
-                day = 6;
-            else if (day == 23)
-                day = 7;
-            else if (day == 24)
-                day = 8;
-            else if (day == 25)
-                day = 9;
-            else if (day == 26)
-                day = 10;
-            else if (day == 27)
-                day = 11;
-            else if (day == 28)
-                day = 12;
-            else if (day == 29)
-                day = 13;
-            else if (day == 30)
-                day = 14;
-            else if (day == 31)
-                day = 15;
+            switch (day)
+            {
+                case 17:
+                    day = 1;
+                    break;
+                case 18:
+                    day = 2;
+                    break;
+                case 19:
+                    day = 3;
+                    break;
+                case 20:
+                    day = 4;
+                    break;
+                case 21:
+                    day = 5;
+                    break;
+                case 22:
+                    day = 6;
+                    break;
+                case 23:
+                    day = 7;
+                    break;
+                case 24:
+                    day = 8;
+                    break;
+                case 25:
+                    day = 9;
+                    break;
+                case 26:
+                    day = 10;
+                    break;
+                case 27:
+                    day = 11;
+                    break;
+                case 28:
+                    day = 12;
+                    break;
+                case 29:
+                    day = 13;
+                    break;
+                case 30:
+                    day = 14;
+                    break;
+                case 31:
+                    day = 15;
+                    break;
+                default:
+                    break;
+            }
 
             // Load-shedding Schedule
             Console.WriteLine("\nSTAGE 2 LOADSHEDDING SCHEDULE\n");
